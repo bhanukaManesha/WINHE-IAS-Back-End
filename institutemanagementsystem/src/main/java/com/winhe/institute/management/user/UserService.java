@@ -44,6 +44,22 @@ public class UserService {
 		return data;
 
 	};
+	
+
+	public JsonWrapper getUserByEmail(String email) {
+
+		User user = userRepository.findByEmail(email);
+
+		if (user == null) {
+			JsonWrapper data = new JsonWrapper("U404", "ERROR , No User Found");
+			return data;
+		}
+
+		JsonWrapper data = new JsonWrapper("U200", "SUCCESS", user);
+
+		return data;
+
+	};
 
 	public JsonWrapper addUser(User user) {
 

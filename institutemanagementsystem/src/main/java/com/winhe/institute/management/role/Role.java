@@ -15,6 +15,7 @@ public class Role {
 	@Id
 	private Integer id;
 	private String role;
+	private String homePath;
 	
 	@OneToMany(mappedBy="role")
 	@JsonBackReference
@@ -22,10 +23,12 @@ public class Role {
 	
 	
 	
-	public Role(Integer id, String role, List<User> users) {
+
+	public Role(Integer id, String role, String homePath, List<User> users) {
 		super();
 		this.id = id;
 		this.role = role;
+		this.homePath = homePath;
 		this.users = users;
 	}
 
@@ -57,6 +60,16 @@ public class Role {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+
+	public String getHomePath() {
+		return homePath;
+	}
+
+
+	public void setHomePath(String homePath) {
+		this.homePath = homePath;
 	}
 	
 	

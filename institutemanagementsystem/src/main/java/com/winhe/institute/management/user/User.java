@@ -1,13 +1,19 @@
 package com.winhe.institute.management.user;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
 import javax.persistence.SequenceGenerator;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.winhe.institute.management.role.Role;
+
+
+
 
 @Entity
 public class User {
@@ -18,9 +24,13 @@ public class User {
 	private Integer id;
 	private String userName;
 	private String email;
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private String password;
+	
 	@ManyToOne
 	private Role role;
+	
+	
 	
 	public User(Integer id, String userName, String email, String password, Role role) {
 		super();
