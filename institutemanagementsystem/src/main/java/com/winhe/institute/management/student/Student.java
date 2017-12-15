@@ -15,10 +15,10 @@ import javax.persistence.TemporalType;
 
 import com.winhe.institute.management.associate.student_batch.Student_Batch;
 import com.winhe.institute.management.associate.student_course.Student_Course;
-import com.winhe.institute.management.associate.student_payment.Student_Payment;
 import com.winhe.institute.management.examresults.ExamResults;
 import com.winhe.institute.management.guardian.Guardian;
 import com.winhe.institute.management.studentattendance.StudentAttendance;
+import com.winhe.institute.management.studentpayment.StudentPayment;
 import com.winhe.institute.management.upload.Upload;
 import com.winhe.institute.management.util.created_updated.CreatedUpdated;
 
@@ -70,7 +70,7 @@ public class Student {
 	private List<Upload> upload;
 	
 	@OneToMany(mappedBy="student")
-	private List<Student_Payment> student_payment;
+	private List<StudentPayment> student_payment;
 	
 	private CreatedUpdated createdupdated;
 }

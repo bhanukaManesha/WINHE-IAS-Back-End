@@ -15,10 +15,10 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.winhe.institute.management.associate.student_batch.Student_Batch;
-import com.winhe.institute.management.associate.student_payment.Student_Payment;
 import com.winhe.institute.management.course.Course;
 import com.winhe.institute.management.examresults.ExamResults;
 import com.winhe.institute.management.studentattendance.StudentAttendance;
+import com.winhe.institute.management.studentpayment.StudentPayment;
 
 @Entity
 public class Batch {
@@ -50,5 +50,5 @@ public class Batch {
 	private List<ExamResults> examResults;
 	
 	@OneToMany(mappedBy="batch")
-	private List<Student_Payment> student_payment;
+	private List<StudentPayment> student_payment;
 }
