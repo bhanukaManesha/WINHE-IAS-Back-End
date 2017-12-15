@@ -1,13 +1,18 @@
 package com.winhe.institute.management.lecturer;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.winhe.institute.management.associate.lecturer_batch_time.Lecturer_Batch_Time;
+import com.winhe.institute.management.associate.lecturer_course.Lecturer_Course;
 
 public class Lecturer {
 	
@@ -33,10 +38,10 @@ public class Lecturer {
 	private String other_qualification;
 	
 	@OneToMany(mappedBy="course")
-	private Lectuer_Course lectuer_course;
+	private List<Lecturer_Course> lectuer_course;
 	
 	@OneToMany(mappedBy="lecturer")
-	private Lectuer_Batch_Time lectuer_batch_time;
+	private List<Lecturer_Batch_Time> lecturer_batch_time;
 	
 	private String batchId;
 	private String lectureringTime;

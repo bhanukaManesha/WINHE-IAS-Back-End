@@ -1,4 +1,4 @@
-package com.winhe.institute.management.associate.lectuer_batch_time;
+package com.winhe.institute.management.associate.lecturer_batch_time;
 
 
 import javax.persistence.Entity;
@@ -10,7 +10,7 @@ import com.winhe.institute.management.lecturer.Lecturer;
 
 
 @Entity
-public class Lectuer_Batch_Time {
+public class Lecturer_Batch_Time {
 
 	@Id
 	private Long id;
@@ -21,7 +21,7 @@ public class Lectuer_Batch_Time {
 	@ManyToOne
 	private Batch batch;
 
-	private Double totalHours;
+
 	private Double hoursWorked;
 	private Double hoursRemaining;
 	
