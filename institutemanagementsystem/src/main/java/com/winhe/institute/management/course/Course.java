@@ -1,6 +1,7 @@
 package com.winhe.institute.management.course;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,8 +17,8 @@ import com.winhe.institute.management.batch.Batch;
 public class Course {
 
 	@Id
-	@SequenceGenerator(name="student_generator", sequenceName="student_seq", allocationSize = 1, initialValue = 1000)
-	@GeneratedValue(strategy= GenerationType.SEQUENCE, generator="student_generator")
+	@SequenceGenerator(name="course_generator", sequenceName="course_seq", allocationSize = 1, initialValue = 1000)
+	@GeneratedValue(strategy= GenerationType.SEQUENCE, generator="course_generator")
 	private Long id;
 	
 	private String courseName;
@@ -28,10 +29,10 @@ public class Course {
 	private Boolean current_past;
 	
 	@OneToMany(mappedBy="course")
-	private Student_Course student_course;
+	private List<Student_Course> student_course;
 	
 	@OneToMany(mappedBy="course")
-	private Batch batch;
+	private List<Batch> batch;
 	
 	
 }

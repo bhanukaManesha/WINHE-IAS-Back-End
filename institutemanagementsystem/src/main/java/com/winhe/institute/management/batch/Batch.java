@@ -2,6 +2,7 @@ package com.winhe.institute.management.batch;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,15 +15,17 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.winhe.institute.management.associate.student_batch.Student_Batch;
+import com.winhe.institute.management.associate.student_payment.Student_Payment;
 import com.winhe.institute.management.course.Course;
-import com.winhe.institute.management.studentAttendance.StudentAttendance;
+import com.winhe.institute.management.examresults.ExamResults;
+import com.winhe.institute.management.studentattendance.StudentAttendance;
 
 @Entity
 public class Batch {
 
 	@Id
-	@SequenceGenerator(name="student_generator", sequenceName="student_seq", allocationSize = 1, initialValue = 1000)
-	@GeneratedValue(strategy= GenerationType.SEQUENCE, generator="student_generator")
+	@SequenceGenerator(name="batch_generator", sequenceName="batch_seq", allocationSize = 1, initialValue = 50)
+	@GeneratedValue(strategy= GenerationType.SEQUENCE, generator="batch_generator")
 	private Long id;
 	
 	private String courseDuration;
@@ -38,8 +41,14 @@ public class Batch {
 	private Course course;
 	
 	@OneToMany(mappedBy="batch")
-	private Student_Batch student_batch;
+	private List<Student_Batch> student_batch;
 	
 	@OneToMany(mappedBy="batch")
-	private StudentAttendance studentAttendance;
+	private List<StudentAttendance> studentAttendance;
+	
+	@OneToMany(mappedBy="batch")
+	private List<ExamResults> examResults;
+	
+	@OneToMany(mappedBy="batch")
+	private List<Student_Payment> student_payment;
 }
