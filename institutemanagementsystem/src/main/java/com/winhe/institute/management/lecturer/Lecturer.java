@@ -7,12 +7,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.winhe.institute.management.associate.lecturer_batch_time.Lecturer_Batch_Time;
 import com.winhe.institute.management.associate.lecturer_course.Lecturer_Course;
+import com.winhe.institute.management.upload.Upload;
 
 public class Lecturer {
 	
@@ -30,6 +32,10 @@ public class Lecturer {
 	private String race;
 	private String religion;
 	private String status;
+	
+	@OneToOne
+	private Upload upload;
+	
 	private String emailAddress;
 	private String address;
 	private String homeNo;

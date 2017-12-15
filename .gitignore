@@ -1,5 +1,6 @@
 .metadata/
 RemoteSystemsTempFiles/
 .recommenders/
- institutemanagementsystem/target/classes/META-INF/maven/com.winhe/institutemanagementsystem/pom.properties
- institutemanagementsystem/target/classes/application.properties
+institutemanagementsystem/target/classes/META-INF/maven/com.winhe/institutemanagementsystem/pom.properties
+institutemanagementsystem/target/classes/application.properties
+institutemanagementsystem/target/

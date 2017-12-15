@@ -1,4 +1,4 @@
-package com.winhe.institute.management.timetable;
+package com.winhe.institute.management.exam_timetable;
 
 import java.util.List;
 
@@ -12,17 +12,17 @@ import javax.persistence.SequenceGenerator;
 import com.winhe.institute.management.batch.Batch;
 import com.winhe.institute.management.upload.Upload;
 
-public class Timetable {
+public class ExamTimetable {
 
 	@Id
-	@SequenceGenerator(name="timetable_generator", sequenceName="timetable_seq", allocationSize = 1, initialValue = 1000)
-	@GeneratedValue(strategy= GenerationType.SEQUENCE, generator="timetable_generator")
+	@SequenceGenerator(name="examtimetable_generator", sequenceName="examtimetable_seq", allocationSize = 1, initialValue = 1000)
+	@GeneratedValue(strategy= GenerationType.SEQUENCE, generator="examtimetable_generator")
 	private Long id;
-	
+
 	@OneToOne
 	private Batch batch;
 	
 	@OneToMany
 	private List<Upload> upload;
-	
+
 }
