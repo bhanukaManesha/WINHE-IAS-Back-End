@@ -7,7 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
+import com.winhe.institute.management.course.Course;
 import com.winhe.institute.management.student.Student;
+import com.winhe.institute.management.util.created_updated.CreatedUpdated;
 
 @Entity
 public class Upload {
@@ -22,6 +24,12 @@ public class Upload {
 	
 	@ManyToOne
 	private Student student;
+	
+	@ManyToOne
+	private Course course;
+	
+	private CreatedUpdated createdupdated;
+
 	
 	
 }
