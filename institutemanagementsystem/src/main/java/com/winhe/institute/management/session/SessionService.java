@@ -8,10 +8,10 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.winhe.institute.management.jsonwrapper.JsonWrapper;
-import com.winhe.institute.management.loginuser.LoginUser;
 import com.winhe.institute.management.user.User;
 import com.winhe.institute.management.user.UserService;
+import com.winhe.institute.management.util.jsonwrapper.JsonWrapper;
+import com.winhe.institute.management.util.loginuser.LoginUser;
 
 @Service
 public class SessionService {

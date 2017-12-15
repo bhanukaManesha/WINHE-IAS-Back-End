@@ -1,4 +1,4 @@
-package com.winhe.institute.management.loginuser;
+package com.winhe.institute.management.util.loginuser;
 
 public class LoginUser {
 

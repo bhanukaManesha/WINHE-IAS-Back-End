@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.winhe.institute.management.jsonwrapper.JsonWrapper;
-import com.winhe.institute.management.loginuser.LoginUser;
+import com.winhe.institute.management.util.jsonwrapper.JsonWrapper;
+import com.winhe.institute.management.util.loginuser.LoginUser;
 
 
 

@@ -1,4 +1,4 @@
-package com.winhe.institute.management.jsonwrapper;
+package com.winhe.institute.management.util.jsonwrapper;
 
 public class JsonWrapper {
 

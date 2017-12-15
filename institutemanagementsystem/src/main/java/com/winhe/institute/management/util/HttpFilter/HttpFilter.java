@@ -1,10 +1,10 @@
-package com.winhe.institute.management.HttpFilter;
+package com.winhe.institute.management.util.HttpFilter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.winhe.institute.management.jsonwrapper.JsonWrapper;
 import com.winhe.institute.management.session.Session;
 import com.winhe.institute.management.session.SessionService;
+import com.winhe.institute.management.util.jsonwrapper.JsonWrapper;
 
 
 public class HttpFilter {
