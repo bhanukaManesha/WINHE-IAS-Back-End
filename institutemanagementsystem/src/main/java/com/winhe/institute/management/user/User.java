@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.winhe.institute.management.mail.InternalMail;
 import com.winhe.institute.management.role.Role;
 import com.winhe.institute.management.session.Session;
 
@@ -35,56 +36,12 @@ public class User {
 	
 	@OneToMany(mappedBy="user")
 	private List<Session> session;
-	
-	
-	
-	public User(Integer id, String userName, String email, String password, Role role) {
-		super();
-		this.id = id;
-		this.userName = userName;
-		this.email = email;
-		this.password = password;
-		this.role = role;
-	}
 
-	public User() {
-		
-	}
+	@OneToMany(mappedBy="sender")
+	private List<InternalMail> internalMailSend;
 	
-	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public String getUserName() {
-		return userName;
-	}
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public Role getRole() {
-		return role;
-	}
-
-	public void setRole(Role role) {
-		this.role = role;
-	}
-
+	@OneToMany(mappedBy="reciever")
+	private List<InternalMail> internalMailReciever;
 
 	
 	

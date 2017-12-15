@@ -22,4 +22,6 @@ public class Upload {
 	
 	@ManyToOne
 	private Student student;
+	
+	
 }

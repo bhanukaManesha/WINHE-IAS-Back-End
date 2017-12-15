@@ -1,4 +1,4 @@
-package com.winhe.institute.management.associate.student_payment;
+package com.winhe.institute.management.studentpayment;
 
 import java.math.BigDecimal;
 
@@ -12,7 +12,7 @@ import com.winhe.institute.management.paymentreceipt.PaymentReceipt;
 import com.winhe.institute.management.student.Student;
 
 @Entity
-public class Student_Payment {
+public class StudentPayment {
 
 	@Id
 	private Long id;

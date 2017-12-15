@@ -12,6 +12,7 @@ import javax.persistence.SequenceGenerator;
 
 import com.winhe.institute.management.associate.student_course.Student_Course;
 import com.winhe.institute.management.batch.Batch;
+import com.winhe.institute.management.upload.Upload;
 
 @Entity
 public class Course {
@@ -33,6 +34,9 @@ public class Course {
 	
 	@OneToMany(mappedBy="course")
 	private List<Batch> batch;
+	
+	@OneToMany(mappedBy="student")
+	private List<Upload> upload;
 	
 	
 }
