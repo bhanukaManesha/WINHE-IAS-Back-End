@@ -35,8 +35,8 @@ public class Lecturer {
 	@OneToMany(mappedBy="course")
 	private Lectuer_Course lectuer_course;
 	
-	@OneToMany(mappedBy="course")
-	private Lectuer_Batch lectuer_batch;
+	@OneToMany(mappedBy="lecturer")
+	private Lectuer_Batch_Time lectuer_batch_time;
 	
 	private String batchId;
 	private String lectureringTime;

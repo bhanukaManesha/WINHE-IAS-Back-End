@@ -1,38 +1,38 @@
-package com.winhe.institute.management.associate.student_course;
+package com.winhe.institute.management.associate.lecturer_course;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import com.winhe.institute.management.course.Course;
-import com.winhe.institute.management.student.Student;
+import com.winhe.institute.management.lecturer.Lecturer;
+
 
 @Entity
-public class Student_Course {
+public class Lecturer_Course {
 
 	@Id
 	private Long id;
 	
 	@ManyToOne
-	private Student student;
+	private Lecturer lecturer;
 	
 	@ManyToOne
 	private Course course;
 	
-
 	/**
 	 * @param id
-	 * @param student
+	 * @param lecturer
 	 * @param course
 	 */
-	public Student_Course(Long id, Student student, Course course) {
+	public Lecturer_Course(Long id, Lecturer lecturer, Course course) {
 		super();
 		this.id = id;
-		this.student = student;
+		this.lecturer = lecturer;
 		this.course = course;
 	}
 
-	public Student_Course() {
+	public Lecturer_Course() {
 		
 	}
 	
@@ -44,12 +44,12 @@ public class Student_Course {
 		this.id = id;
 	}
 
-	public Student getStudent() {
-		return student;
+	public Lecturer getLecturer() {
+		return lecturer;
 	}
 
-	public void setStudent(Student student) {
-		this.student = student;
+	public void setLecturer(Lecturer lecturer) {
+		this.lecturer = lecturer;
 	}
 
 	public Course getCourse() {
@@ -59,9 +59,5 @@ public class Student_Course {
 	public void setCourse(Course course) {
 		this.course = course;
 	}
-	
-	
-	
-	
 	
 }
