@@ -7,10 +7,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.winhe.institute.management.associate.student_course.Student_Course;
 import com.winhe.institute.management.guardian.Guardian;
 
 @Entity
@@ -44,7 +46,9 @@ public class Student {
 	
 	@ManyToOne
 	private Guardian guardian;
-
+	
+	@OneToMany(mappedBy="student")
+	private Student_Course student_course;
 
 	public Student(Long id, String firstName, String lastName, String nIC_BC, Date dOB, String gender,
 			String nationality, String race, String status, String emailAddress, String address, String homeNo,
