@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: Institute Management System
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: bhanuka
+Built-By: Themiya
 Implementation-Vendor-Id: com.winhe
-Build-Jdk: 1.8.0_131
+Build-Jdk: 1.8.0_151
 Implementation-URL: http://projects.spring.io/spring-boot/instituteman
  agementsystem/
 Created-By: Maven Integration for Eclipse
