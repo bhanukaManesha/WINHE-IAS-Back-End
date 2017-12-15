@@ -1,6 +1,7 @@
 package com.winhe.institute.management.student;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,8 +15,12 @@ import javax.persistence.TemporalType;
 
 import com.winhe.institute.management.associate.student_batch.Student_Batch;
 import com.winhe.institute.management.associate.student_course.Student_Course;
+import com.winhe.institute.management.associate.student_payment.Student_Payment;
+import com.winhe.institute.management.examresults.ExamResults;
 import com.winhe.institute.management.guardian.Guardian;
-import com.winhe.institute.management.studentAttendance.StudentAttendance;
+import com.winhe.institute.management.studentattendance.StudentAttendance;
+import com.winhe.institute.management.upload.Upload;
+import com.winhe.institute.management.util.created_updated.CreatedUpdated;
 
 @Entity
 public class Student {
@@ -50,14 +55,22 @@ public class Student {
 	private Guardian guardian;
 	
 	@OneToMany(mappedBy="student")
-	private Student_Course student_course;
+	private List<Student_Course> student_course;
 
 	@OneToMany(mappedBy="student")
-	private Student_Batch student_batch;
+	private List<Student_Batch> student_batch;
 	
 	@OneToMany(mappedBy="student")
-	private StudentAttendance studentAttendance;
+	private List<StudentAttendance> studentAttendance;
 	
-	@OneToMany
+	@OneToMany(mappedBy="student")
+	private List<ExamResults> examResults;
 	
+	@OneToMany(mappedBy="student")
+	private List<Upload> upload;
+	
+	@OneToMany(mappedBy="student")
+	private List<Student_Payment> student_payment;
+	
+	private CreatedUpdated createdupdated;
 }
