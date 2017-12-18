@@ -1,6 +1,5 @@
 package com.winhe.institute.management.course;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -16,6 +15,7 @@ import com.winhe.institute.management.batch.Batch;
 import com.winhe.institute.management.lecturer.Lecturer;
 import com.winhe.institute.management.lecturer_salary.LecturerSalary;
 import com.winhe.institute.management.upload.Upload;
+import com.winhe.institute.management.util.created_updated.CreatedUpdated;
 
 @Entity
 public class Course {
@@ -38,14 +38,17 @@ public class Course {
 	@OneToMany(mappedBy="course")
 	private List<Batch> batch;
 	
-	@OneToMany(mappedBy="student")
+	@OneToMany(mappedBy="course")
 	private List<Upload> upload;
 	
+
 	@ManyToOne
 	private List<Lecturer> lecturer;
 	
 	@OneToMany(mappedBy="course")
 	private LecturerSalary lecturersalary;
-	
+
+	private CreatedUpdated createdupdated;
+
 	
 }

@@ -8,10 +8,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
+
 import com.winhe.institute.management.exam_timetable.ExamTimetable;
 import com.winhe.institute.management.lecturer.Lecturer;
 import com.winhe.institute.management.student.Student;
 import com.winhe.institute.management.timetable.Timetable;
+import com.winhe.institute.management.course.Course;
+import com.winhe.institute.management.student.Student;
+import com.winhe.institute.management.util.created_updated.CreatedUpdated;
+
 
 @Entity
 public class Upload {
@@ -34,6 +39,11 @@ public class Upload {
 	
 	@ManyToOne
 	private ExamTimetable examtimetable;
+
+	private Course course;
+	
+	private CreatedUpdated createdupdated;
+
 	
 	
 }

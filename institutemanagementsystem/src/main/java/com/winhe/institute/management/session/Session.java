@@ -9,6 +9,7 @@ import javax.persistence.SequenceGenerator;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.winhe.institute.management.user.User;
+import com.winhe.institute.management.util.created_updated.CreatedUpdated;
 
 @Entity
 public class Session {
@@ -23,14 +24,25 @@ public class Session {
 	
 	@ManyToOne
 	private User user;
+	
+	private CreatedUpdated createdupdated;
 
-	public Session(Long id, String token, User user) {
+	
+	
+	/**
+	 * @param id
+	 * @param token
+	 * @param user
+	 * @param createdupdated
+	 */
+	public Session(Long id, String token, User user, CreatedUpdated createdupdated) {
 		super();
 		this.id = id;
 		this.token = token;
 		this.user = user;
+		this.createdupdated = createdupdated;
 	}
-	
+
 	public Session(String token, User user) {
 		super();
 		this.token = token;
@@ -70,6 +82,14 @@ public class Session {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public CreatedUpdated getCreatedupdated() {
+		return createdupdated;
+	}
+
+	public void setCreatedupdated(CreatedUpdated createdupdated) {
+		this.createdupdated = createdupdated;
 	}
 	
 	

@@ -7,6 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 import com.winhe.institute.management.user.User;
+import com.winhe.institute.management.util.created_updated.CreatedUpdated;
 
 public class InternalMail {
 
@@ -20,4 +21,85 @@ public class InternalMail {
 	
 	@ManyToOne
 	private User reciever;
+	
+	private CreatedUpdated createdupdated;
+
+	/**
+	 * @param id
+	 * @param sender
+	 * @param reciever
+	 * @param createdupdated
+	 */
+	public InternalMail(Long id, User sender, User reciever, CreatedUpdated createdupdated) {
+		super();
+		this.id = id;
+		this.sender = sender;
+		this.reciever = reciever;
+		this.createdupdated = createdupdated;
+	}
+
+	/**
+	 * 
+	 */
+	public InternalMail() {
+		super();
+	}
+
+	/**
+	 * @return the id
+	 */
+	public Long getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return the sender
+	 */
+	public User getSender() {
+		return sender;
+	}
+
+	/**
+	 * @param sender the sender to set
+	 */
+	public void setSender(User sender) {
+		this.sender = sender;
+	}
+
+	/**
+	 * @return the reciever
+	 */
+	public User getReciever() {
+		return reciever;
+	}
+
+	/**
+	 * @param reciever the reciever to set
+	 */
+	public void setReciever(User reciever) {
+		this.reciever = reciever;
+	}
+
+	/**
+	 * @return the createdupdated
+	 */
+	public CreatedUpdated getCreatedupdated() {
+		return createdupdated;
+	}
+
+	/**
+	 * @param createdupdated the createdupdated to set
+	 */
+	public void setCreatedupdated(CreatedUpdated createdupdated) {
+		this.createdupdated = createdupdated;
+	}
+	
+	
 }

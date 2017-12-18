@@ -24,7 +24,11 @@ import com.winhe.institute.management.lecturer.Lecturer;
 import com.winhe.institute.management.lecturer_salary.LecturerSalary;
 import com.winhe.institute.management.studentattendance.StudentAttendance;
 import com.winhe.institute.management.studentpayment.StudentPayment;
+<<<<<<< HEAD
 import com.winhe.institute.management.timetable.Timetable;
+=======
+import com.winhe.institute.management.util.created_updated.CreatedUpdated;
+>>>>>>> b5f32eb9a56a0f01e80410f6ac9e16b2350a7c8c
 
 @Entity
 public class Batch {
@@ -58,6 +62,7 @@ public class Batch {
 	@OneToMany(mappedBy="batch")
 	private List<StudentPayment> student_payment;
 	
+
 	@ManyToOne
 	private Lecturer_Batch lecturer_batch;
 	
@@ -73,6 +78,6 @@ public class Batch {
 	@OneToMany(mappedBy="batch")
 	private LecturerSalary lecturersalary;
 	
-	
-	
+	private CreatedUpdated createdupdated;
+
 }
