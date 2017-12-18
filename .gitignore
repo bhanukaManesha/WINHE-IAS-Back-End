@@ -2,7 +2,7 @@
 RemoteSystemsTempFiles/
 .recommenders/
 institutemanagementsystem/target/classes/META-INF/maven/com.winhe/institutemanagementsystem/pom.properties
-institutemanagementsystem/target/classes/application.properties
+institutemanagementsystem/src/main/resources/application.properties
 institutemanagementsystem/target/
 institutemanagementsystem/target/classes/META-INF/MANIFEST.MF
 

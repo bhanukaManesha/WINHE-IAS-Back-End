@@ -1,4 +1,4 @@
-package com.winhe.institute.management.util.httpfilter;
+package com.winhe.institute.management.util.HttpFilter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
