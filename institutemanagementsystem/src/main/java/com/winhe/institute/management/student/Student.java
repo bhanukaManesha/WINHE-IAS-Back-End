@@ -36,6 +36,7 @@ public class Student {
 	private Date DOB;
 	private String gender;
 	private String nationality;
+	private String religion;
 	private String race;
 	private String status;
 	private String emailAddress;
@@ -66,8 +67,8 @@ public class Student {
 	@OneToMany(mappedBy="student")
 	private List<ExamResults> examResults;
 	
-	@OneToMany(mappedBy="student")
-	private List<Upload> upload;
+	@ManyToOne
+	private Upload upload;
 	
 	@OneToMany(mappedBy="student")
 	private List<StudentPayment> student_payment;
@@ -82,6 +83,7 @@ public class Student {
 	 * @param dOB
 	 * @param gender
 	 * @param nationality
+	 * @param religion
 	 * @param race
 	 * @param status
 	 * @param emailAddress
@@ -105,12 +107,12 @@ public class Student {
 	 * @param createdupdated
 	 */
 	public Student(Long id, String firstName, String lastName, String nIC_BC, Date dOB, String gender,
-			String nationality, String race, String status, String emailAddress, String address, String homeNo,
-			String mobileNo, String year10_nameOfQualification, String year10_subjectsPassed,
+			String nationality, String religion, String race, String status, String emailAddress, String address,
+			String homeNo, String mobileNo, String year10_nameOfQualification, String year10_subjectsPassed,
 			String year12_nameOfQualification, String year12_subjectsPassed, String otherQualifications,
 			String studyTime, Boolean current_past, Guardian guardian, List<Student_Course> student_course,
 			List<Student_Batch> student_batch, List<StudentAttendance> studentAttendance, List<ExamResults> examResults,
-			List<Upload> upload, List<StudentPayment> student_payment, CreatedUpdated createdupdated) {
+			Upload upload, List<StudentPayment> student_payment, CreatedUpdated createdupdated) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -119,6 +121,7 @@ public class Student {
 		DOB = dOB;
 		this.gender = gender;
 		this.nationality = nationality;
+		this.religion = religion;
 		this.race = race;
 		this.status = status;
 		this.emailAddress = emailAddress;
@@ -245,6 +248,20 @@ public class Student {
 	 */
 	public void setNationality(String nationality) {
 		this.nationality = nationality;
+	}
+
+	/**
+	 * @return the religion
+	 */
+	public String getReligion() {
+		return religion;
+	}
+
+	/**
+	 * @param religion the religion to set
+	 */
+	public void setReligion(String religion) {
+		this.religion = religion;
 	}
 
 	/**
@@ -502,14 +519,14 @@ public class Student {
 	/**
 	 * @return the upload
 	 */
-	public List<Upload> getUpload() {
+	public Upload getUpload() {
 		return upload;
 	}
 
 	/**
 	 * @param upload the upload to set
 	 */
-	public void setUpload(List<Upload> upload) {
+	public void setUpload(Upload upload) {
 		this.upload = upload;
 	}
 
@@ -540,7 +557,6 @@ public class Student {
 	public void setCreatedupdated(CreatedUpdated createdupdated) {
 		this.createdupdated = createdupdated;
 	}
-	
-	
-	
+
+			
 }

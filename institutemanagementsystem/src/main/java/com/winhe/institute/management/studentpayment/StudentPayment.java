@@ -1,11 +1,14 @@
 package com.winhe.institute.management.studentpayment;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.winhe.institute.management.batch.Batch;
 import com.winhe.institute.management.paymentreceipt.PaymentReceipt;
@@ -17,6 +20,9 @@ public class StudentPayment {
 
 	@Id
 	private Long id;
+	
+	@Temporal(TemporalType.DATE)
+	private Date date;
 	
 	private BigDecimal amountPaid;
 	private BigDecimal remainingAmount;
@@ -34,6 +40,7 @@ public class StudentPayment {
 
 	/**
 	 * @param id
+	 * @param date
 	 * @param amountPaid
 	 * @param remainingAmount
 	 * @param student
@@ -41,10 +48,11 @@ public class StudentPayment {
 	 * @param paymentReceipt
 	 * @param createdupdated
 	 */
-	public StudentPayment(Long id, BigDecimal amountPaid, BigDecimal remainingAmount, Student student, Batch batch,
-			PaymentReceipt paymentReceipt, CreatedUpdated createdupdated) {
+	public StudentPayment(Long id, Date date, BigDecimal amountPaid, BigDecimal remainingAmount, Student student,
+			Batch batch, PaymentReceipt paymentReceipt, CreatedUpdated createdupdated) {
 		super();
 		this.id = id;
+		this.date = date;
 		this.amountPaid = amountPaid;
 		this.remainingAmount = remainingAmount;
 		this.student = student;
@@ -72,6 +80,20 @@ public class StudentPayment {
 	 */
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	/**
+	 * @return the date
+	 */
+	public Date getDate() {
+		return date;
+	}
+
+	/**
+	 * @param date the date to set
+	 */
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	/**
@@ -157,6 +179,7 @@ public class StudentPayment {
 	public void setCreatedupdated(CreatedUpdated createdupdated) {
 		this.createdupdated = createdupdated;
 	}
+
 	
 	
 }

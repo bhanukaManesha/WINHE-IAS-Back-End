@@ -1,14 +1,17 @@
 package com.winhe.institute.management.mail;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 import com.winhe.institute.management.user.User;
 import com.winhe.institute.management.util.created_updated.CreatedUpdated;
 
+@Entity
 public class InternalMail {
 
 	@Id
@@ -21,6 +24,9 @@ public class InternalMail {
 	
 	@ManyToOne
 	private User reciever;
+	
+	@OneToOne
+	private Message message;
 	
 	private CreatedUpdated createdupdated;
 
