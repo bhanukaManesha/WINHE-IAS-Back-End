@@ -7,11 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 import com.winhe.institute.management.associate.student_course.Student_Course;
 import com.winhe.institute.management.batch.Batch;
+import com.winhe.institute.management.lecturer.Lecturer;
+import com.winhe.institute.management.lecturer_salary.LecturerSalary;
 import com.winhe.institute.management.upload.Upload;
 
 @Entity
@@ -37,6 +40,12 @@ public class Course {
 	
 	@OneToMany(mappedBy="student")
 	private List<Upload> upload;
+	
+	@ManyToOne
+	private List<Lecturer> lecturer;
+	
+	@OneToMany(mappedBy="course")
+	private LecturerSalary lecturersalary;
 	
 	
 }

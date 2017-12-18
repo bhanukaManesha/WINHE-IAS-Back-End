@@ -6,14 +6,19 @@ import java.util.List;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.winhe.institute.management.associate.lecturer_attendance.LecturerAttendance;
+import com.winhe.institute.management.associate.lecturer_batch.Lecturer_Batch;
 import com.winhe.institute.management.associate.lecturer_batch_time.Lecturer_Batch_Time;
-import com.winhe.institute.management.associate.lecturer_course.Lecturer_Course;
+import com.winhe.institute.management.batch.Batch;
+import com.winhe.institute.management.course.Course;
+import com.winhe.institute.management.lecturer_salary.LecturerSalary;
 import com.winhe.institute.management.upload.Upload;
 
 public class Lecturer {
@@ -33,8 +38,8 @@ public class Lecturer {
 	private String religion;
 	private String status;
 	
-	@OneToOne
-	private Upload upload;
+	@OneToMany(mappedBy="lecturer")
+	private List<Upload> upload;
 	
 	private String emailAddress;
 	private String address;
@@ -44,15 +49,25 @@ public class Lecturer {
 	private String other_qualification;
 	
 	@OneToMany(mappedBy="course")
-	private List<Lecturer_Course> lectuer_course;
+	private List<Course> course;
 	
-	@OneToMany(mappedBy="lecturer")
-	private List<Lecturer_Batch_Time> lecturer_batch_time;
-	
-	private String batchId;
 	private String lectureringTime;
 	private String lecturerHourelyRate;
 	private Boolean current_past;
+	
+	@ManyToOne
+	private Lecturer_Batch_Time lecturer_batch_time;
+	
+	@ManyToOne
+	private Lecturer_Batch lecturer_batch;
+	
+	@OneToMany(mappedBy="lecturer")
+	private List<LecturerSalary> lecturersalary;
+	
+	@OneToMany(mappedBy="lecturer")
+	private List<LecturerAttendance> lecturerattendance;
+	
+	
 	
 	
 	

@@ -5,9 +5,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
+import com.winhe.institute.management.exam_timetable.ExamTimetable;
+import com.winhe.institute.management.lecturer.Lecturer;
 import com.winhe.institute.management.student.Student;
+import com.winhe.institute.management.timetable.Timetable;
 
 @Entity
 public class Upload {
@@ -20,8 +24,16 @@ public class Upload {
 	private String fileName;
 	private String filePath;
 	
-	@ManyToOne
 	private Student student;
+	
+	@ManyToOne
+	private Lecturer lecturer;
+	
+	@ManyToOne
+	private Timetable timetable;
+	
+	@ManyToOne
+	private ExamTimetable examtimetable;
 	
 	
 }

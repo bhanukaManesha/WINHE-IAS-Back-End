@@ -7,11 +7,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 import com.winhe.institute.management.batch.Batch;
 import com.winhe.institute.management.course.Course;
 import com.winhe.institute.management.lecturer.Lecturer;
+import com.winhe.institute.management.paymentreceipt.PaymentReceipt;
 
 public class LecturerSalary {
 	
@@ -33,7 +35,9 @@ public class LecturerSalary {
 	private Double hoursWorked;
 	private BigDecimal amountReceived;
 	private BigDecimal amountRemaining;
-	private Long paymentReceiptId;
+	
+	@OneToOne
+	private PaymentReceipt paymentReceipt;
 	
 	
 	
