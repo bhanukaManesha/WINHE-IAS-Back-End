@@ -21,7 +21,7 @@ import com.winhe.institute.management.course.Course;
 import com.winhe.institute.management.exam_timetable.ExamTimetable;
 import com.winhe.institute.management.examresults.ExamResults;
 import com.winhe.institute.management.lecturer_salary.LecturerSalary;
-import com.winhe.institute.management.studentAttendance.StudentAttendance;
+import com.winhe.institute.management.studentattendance.StudentAttendance;
 import com.winhe.institute.management.studentpayment.StudentPayment;
 import com.winhe.institute.management.timetable.Timetable;
 

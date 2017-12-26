@@ -18,7 +18,7 @@ import com.winhe.institute.management.associate.student_batch.Student_Batch;
 import com.winhe.institute.management.associate.student_course.Student_Course;
 import com.winhe.institute.management.examresults.ExamResults;
 import com.winhe.institute.management.guardian.Guardian;
-import com.winhe.institute.management.studentAttendance.StudentAttendance;
+import com.winhe.institute.management.studentattendance.StudentAttendance;
 import com.winhe.institute.management.studentpayment.StudentPayment;
 import com.winhe.institute.management.upload.Upload;
 import com.winhe.institute.management.util.created_updated.CreatedUpdated;
