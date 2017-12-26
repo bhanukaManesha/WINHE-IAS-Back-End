@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -67,7 +68,7 @@ public class Student {
 	@OneToMany(mappedBy="student")
 	private List<ExamResults> examResults;
 	
-	@ManyToOne
+	@OneToOne
 	private Upload upload;
 	
 	@OneToMany(mappedBy="student")
@@ -558,5 +559,5 @@ public class Student {
 		this.createdupdated = createdupdated;
 	}
 
-			
+	
 }
