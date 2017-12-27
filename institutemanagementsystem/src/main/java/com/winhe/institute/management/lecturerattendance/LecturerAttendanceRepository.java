@@ -1,4 +1,4 @@
-package com.winhe.institute.management.associate.lecturer_attendance;
+package com.winhe.institute.management.lecturerattendance;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

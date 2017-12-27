@@ -1,4 +1,4 @@
-package com.winhe.institute.management.associate.lecturer_attendance;
+package com.winhe.institute.management.lecturerattendance;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

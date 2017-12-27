@@ -1,4 +1,4 @@
-package com.winhe.institute.management.lecturer_salary;
+package com.winhe.institute.management.lecturersalary;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

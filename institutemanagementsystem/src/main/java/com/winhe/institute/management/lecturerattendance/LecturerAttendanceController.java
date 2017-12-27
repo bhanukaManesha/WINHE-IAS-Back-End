@@ -1,4 +1,4 @@
-package com.winhe.institute.management.associate.lecturer_attendance;
+package com.winhe.institute.management.lecturerattendance;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,7 +25,7 @@ public class LecturerAttendanceController {
 
 		if (data.getCode() == "LOGIN200") {
 
-			return lecturerservice.getAllLecturers();
+			return lecturerAttendanceService.getAllLecturerAttendance();
 		}
 		return data;
 

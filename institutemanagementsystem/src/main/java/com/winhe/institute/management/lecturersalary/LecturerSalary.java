@@ -1,4 +1,4 @@
-package com.winhe.institute.management.lecturer_salary;
+package com.winhe.institute.management.lecturersalary;
 
 import java.math.BigDecimal;
 import java.util.Date;

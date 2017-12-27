@@ -12,7 +12,7 @@ import javax.persistence.SequenceGenerator;
 
 import com.winhe.institute.management.associate.student_course.Student_Course;
 import com.winhe.institute.management.batch.Batch;
-import com.winhe.institute.management.lecturer_salary.LecturerSalary;
+import com.winhe.institute.management.lecturersalary.LecturerSalary;
 import com.winhe.institute.management.upload.Upload;
 import com.winhe.institute.management.util.created_updated.CreatedUpdated;
 
