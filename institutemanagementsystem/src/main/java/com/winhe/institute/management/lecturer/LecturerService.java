@@ -3,6 +3,7 @@ package com.winhe.institute.management.lecturer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.winhe.institute.management.associate.student_batch.Student_Batch;
 import com.winhe.institute.management.util.jsonwrapper.JsonWrapper;
 
 @Service
@@ -41,23 +42,40 @@ public class LecturerService {
 	}
 	
 	// method of updating a lecturer
-	public JsonWrapper updateLecturer(Lecturer lecturer) {
-		
+	
+	
+	public JsonWrapper updateLecturer(Long id,  Lecturer lecturer) {
+
+		Lecturer tempLecturer = lecturerRepository.findOne(id);
+
+		if (tempLecturer== null) {
+			JsonWrapper data = new JsonWrapper("LECTURER404", "ERROR , No Lecturer Entry Found");
+			return data;
+		}
+
+		lecturer.setId(id);
 		lecturerRepository.save(lecturer);
 		
-		JsonWrapper data = new JsonWrapper("LECTURER200", "SUCCESSFULLY UPDATED", lecturer);
-		
+		JsonWrapper data = new JsonWrapper("LECTURER200", "Lecturer Entry Successfully Updated", lecturer);
+
 		return data;
-		
-	}
+	};
 	
 	// method of deleting a lecturer
-	public JsonWrapper deleteLecturer(Long id){
+	public JsonWrapper deleteLecturer(Long id) {
+
+		Lecturer tempLecturer = lecturerRepository.findOne(id);
+
+		if (tempLecturer == null) {
+			JsonWrapper data = new JsonWrapper("LECTURER404", "ERROR , No Lecturer Entry Found");
+			return data;
+		}
+
 		lecturerRepository.delete(id);
-		
-		JsonWrapper data = new JsonWrapper("LECTURER200", "SUCCESSFULLY DELETED" + id);
-		
+
+		JsonWrapper data = new JsonWrapper("LECTURER200", "SUCCESFULLY DELETED");
+
 		return data;
-	}
+	};
 	
 }
