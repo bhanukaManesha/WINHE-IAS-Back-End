@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -17,7 +18,7 @@ import com.winhe.institute.management.associate.student_batch.Student_Batch;
 import com.winhe.institute.management.associate.student_course.Student_Course;
 import com.winhe.institute.management.examresults.ExamResults;
 import com.winhe.institute.management.guardian.Guardian;
-import com.winhe.institute.management.studentAttendance.StudentAttendance;
+import com.winhe.institute.management.studentattendance.StudentAttendance;
 import com.winhe.institute.management.studentpayment.StudentPayment;
 import com.winhe.institute.management.upload.Upload;
 import com.winhe.institute.management.util.created_updated.CreatedUpdated;
@@ -67,7 +68,7 @@ public class Student {
 	@OneToMany(mappedBy="student")
 	private List<ExamResults> examResults;
 	
-	@ManyToOne
+	@OneToOne
 	private Upload upload;
 	
 	@OneToMany(mappedBy="student")
@@ -558,5 +559,5 @@ public class Student {
 		this.createdupdated = createdupdated;
 	}
 
-			
+	
 }

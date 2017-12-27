@@ -6,8 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 import com.winhe.institute.management.associate.student_course.Student_Course;
@@ -36,7 +36,7 @@ public class Course {
 	@OneToMany(mappedBy="course")
 	private List<Batch> batch;
 	
-	@ManyToOne
+	@OneToOne
 	private Upload upload;
 	
 	@OneToMany(mappedBy="course")

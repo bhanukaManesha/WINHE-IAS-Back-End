@@ -1,4 +1,4 @@
-package com.winhe.institute.management.student;
+package com.winhe.institute.management.guardian;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,73 +12,73 @@ import com.winhe.institute.management.session.SessionService;
 import com.winhe.institute.management.util.jsonwrapper.JsonWrapper;
 
 @RestController
-public class StudentController {
+public class GuardianController {
 
 	@Autowired
-	private StudentService studentService;
+	private GuardianService guardianService;
 
 	@Autowired
 	private SessionService sessionService;
 
-	@RequestMapping("/students/{token}")
-	public JsonWrapper getAllStudents(@PathVariable String token) {
+	@RequestMapping("/guardian/{token}")
+	public JsonWrapper getAllGuardians(@PathVariable String token) {
 
 		JsonWrapper data = Validation(token);
 
 		if (data.getCode() == "LOGIN200") {
-			return studentService.getAllStudents();
+			return guardianService.getAllGuardians();
 		}
 
 		return data;
 
 	}
 
-	@RequestMapping("/students/{id}/{token}")
-	public JsonWrapper getStudent(@PathVariable String id, @PathVariable String token) {
+	@RequestMapping("/guardian/{id}/{token}")
+	public JsonWrapper getGuardian(@PathVariable String id, @PathVariable String token) {
 
 		JsonWrapper data = Validation(token);
 
 		if (data.getCode() == "LOGIN200") {
-			return studentService.getStudent(id);
+			return guardianService.getGuardian(id);
 		}
 
 		return data;
 
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/students/{token}")
-	public JsonWrapper addStudent(@RequestBody Student student, @PathVariable String token) {
+	@RequestMapping(method = RequestMethod.POST, value = "/guardian/{token}")
+	public JsonWrapper addGuardian(@RequestBody Guardian guardian, @PathVariable String token) {
 
 		JsonWrapper data = Validation(token);
 
 		if (data.getCode() == "LOGIN200") {
-			return studentService.addStudent(student);
+			return guardianService.addGuardian(guardian);
 		}
 
 		return data;
 
 	}
 
-	@RequestMapping(method = RequestMethod.PUT, value = "/students/{id}/{token}")
-	public JsonWrapper updateStudent(@RequestBody Student student, @PathVariable Long id, @PathVariable String token) {
+	@RequestMapping(method = RequestMethod.PUT, value = "/guardian/{id}/{token}")
+	public JsonWrapper updateGuardian(@RequestBody Guardian guardian, @PathVariable Long id, @PathVariable String token) {
 
 		JsonWrapper data = Validation(token);
 
 		if (data.getCode() == "LOGIN200") {
-			return studentService.updateStudent(id, student);
+			return guardianService.updateGuardian(id, guardian);
 		}
 
 		return data;
 		
 	}
 	
-	@RequestMapping(method=RequestMethod.DELETE, value="/students/{id}/{token}")
-	public JsonWrapper deleteStudent(@PathVariable Long id,  @PathVariable String token) {
+	@RequestMapping(method=RequestMethod.DELETE, value="/guardian/{id}/{token}")
+	public JsonWrapper deleteGuardian(@PathVariable Long id,  @PathVariable String token) {
 		
 		JsonWrapper data = Validation(token);
 
 		if (data.getCode() == "LOGIN200") {
-			return studentService.deleteStudent(id);
+			return guardianService.deleteGuardian(id);
 		}
 
 		return data;

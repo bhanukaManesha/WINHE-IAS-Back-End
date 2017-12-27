@@ -1,4 +1,4 @@
-package com.winhe.institute.management.student;
+package com.winhe.institute.management.exam_timetable;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,83 +12,83 @@ import com.winhe.institute.management.session.SessionService;
 import com.winhe.institute.management.util.jsonwrapper.JsonWrapper;
 
 @RestController
-public class StudentController {
+public class ExamTimetableController {
 
 	@Autowired
-	private StudentService studentService;
+	private ExamTimetableService examTimetableService;
 
 	@Autowired
 	private SessionService sessionService;
 
-	@RequestMapping("/students/{token}")
-	public JsonWrapper getAllStudents(@PathVariable String token) {
+	@RequestMapping("/exam-timetables/{token}")
+	public JsonWrapper getAllExamTimetables(@PathVariable String token) {
 
 		JsonWrapper data = Validation(token);
 
 		if (data.getCode() == "LOGIN200") {
-			return studentService.getAllStudents();
+			return examTimetableService.getAllExamTimetables();
 		}
 
 		return data;
 
 	}
 
-	@RequestMapping("/students/{id}/{token}")
-	public JsonWrapper getStudent(@PathVariable String id, @PathVariable String token) {
+	@RequestMapping("/exam-timetables/{id}/{token}")
+	public JsonWrapper getExamTimetable(@PathVariable String id, @PathVariable String token) {
 
 		JsonWrapper data = Validation(token);
 
 		if (data.getCode() == "LOGIN200") {
-			return studentService.getStudent(id);
+			return examTimetableService.getExamTimetable(id);
 		}
 
 		return data;
 
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/students/{token}")
-	public JsonWrapper addStudent(@RequestBody Student student, @PathVariable String token) {
+	@RequestMapping(method = RequestMethod.POST, value = "/exam-timetables/{token}")
+	public JsonWrapper addExamTimetable(@RequestBody ExamTimetable examTimetable, @PathVariable String token) {
 
 		JsonWrapper data = Validation(token);
 
 		if (data.getCode() == "LOGIN200") {
-			return studentService.addStudent(student);
+			return examTimetableService.addExamTimetable(examTimetable);
 		}
 
 		return data;
 
 	}
 
-	@RequestMapping(method = RequestMethod.PUT, value = "/students/{id}/{token}")
-	public JsonWrapper updateStudent(@RequestBody Student student, @PathVariable Long id, @PathVariable String token) {
+	@RequestMapping(method = RequestMethod.PUT, value = "/exam-timetables/{id}/{token}")
+	public JsonWrapper updateExamTimetable(@RequestBody ExamTimetable examTimetable, @PathVariable Long id, @PathVariable String token) {
 
 		JsonWrapper data = Validation(token);
 
 		if (data.getCode() == "LOGIN200") {
-			return studentService.updateStudent(id, student);
+			return examTimetableService.updateExamTimetable(id, examTimetable);
 		}
 
 		return data;
-		
+
 	}
-	
-	@RequestMapping(method=RequestMethod.DELETE, value="/students/{id}/{token}")
-	public JsonWrapper deleteStudent(@PathVariable Long id,  @PathVariable String token) {
-		
+
+	@RequestMapping(method = RequestMethod.DELETE, value = "/exam-timetables/{id}/{token}")
+	public JsonWrapper deleteExamTimetable(@PathVariable Long id, @PathVariable String token) {
+
 		JsonWrapper data = Validation(token);
 
 		if (data.getCode() == "LOGIN200") {
-			return studentService.deleteStudent(id);
+			return examTimetableService.deleteExamTimetable(id);
 		}
 
 		return data;
-		
-		
+
 	}
 
 	// Validation Function
 
 	private JsonWrapper Validation(String token) {
+
 
 		Session session = (Session) sessionService.getSession(token).getData();
 

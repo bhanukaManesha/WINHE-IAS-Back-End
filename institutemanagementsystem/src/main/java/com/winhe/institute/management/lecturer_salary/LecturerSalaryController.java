@@ -1,4 +1,4 @@
-package com.winhe.institute.management.student;
+package com.winhe.institute.management.lecturer_salary;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,73 +12,73 @@ import com.winhe.institute.management.session.SessionService;
 import com.winhe.institute.management.util.jsonwrapper.JsonWrapper;
 
 @RestController
-public class StudentController {
+public class LecturerSalaryController {
 
 	@Autowired
-	private StudentService studentService;
+	private LecturerSalaryService lecturerSalaryService;
 
 	@Autowired
 	private SessionService sessionService;
 
-	@RequestMapping("/students/{token}")
-	public JsonWrapper getAllStudents(@PathVariable String token) {
+	@RequestMapping("/lecturer-salary/{token}")
+	public JsonWrapper getAllLecturerSalaries(@PathVariable String token) {
 
 		JsonWrapper data = Validation(token);
 
 		if (data.getCode() == "LOGIN200") {
-			return studentService.getAllStudents();
+			return lecturerSalaryService.getAllLecturerSalaries();
 		}
 
 		return data;
 
 	}
 
-	@RequestMapping("/students/{id}/{token}")
-	public JsonWrapper getStudent(@PathVariable String id, @PathVariable String token) {
+	@RequestMapping("/lecturer-salary/{id}/{token}")
+	public JsonWrapper getLecturerSalary(@PathVariable String id, @PathVariable String token) {
 
 		JsonWrapper data = Validation(token);
 
 		if (data.getCode() == "LOGIN200") {
-			return studentService.getStudent(id);
+			return lecturerSalaryService.getLecturerSalary(id);
 		}
 
 		return data;
 
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/students/{token}")
-	public JsonWrapper addStudent(@RequestBody Student student, @PathVariable String token) {
+	@RequestMapping(method = RequestMethod.POST, value = "/lecturer-salary/{token}")
+	public JsonWrapper addLecturerSalary(@RequestBody LecturerSalary lecturerSalary, @PathVariable String token) {
 
 		JsonWrapper data = Validation(token);
 
 		if (data.getCode() == "LOGIN200") {
-			return studentService.addStudent(student);
+			return lecturerSalaryService.addLecturerSalary(lecturerSalary);
 		}
 
 		return data;
 
 	}
 
-	@RequestMapping(method = RequestMethod.PUT, value = "/students/{id}/{token}")
-	public JsonWrapper updateStudent(@RequestBody Student student, @PathVariable Long id, @PathVariable String token) {
+	@RequestMapping(method = RequestMethod.PUT, value = "/lecturer-salary/{id}/{token}")
+	public JsonWrapper updateLecturerSalary(@RequestBody LecturerSalary lecturerSalary, @PathVariable Long id, @PathVariable String token) {
 
 		JsonWrapper data = Validation(token);
 
 		if (data.getCode() == "LOGIN200") {
-			return studentService.updateStudent(id, student);
+			return lecturerSalaryService.updateLecturerSalary(id, lecturerSalary);
 		}
 
 		return data;
 		
 	}
 	
-	@RequestMapping(method=RequestMethod.DELETE, value="/students/{id}/{token}")
-	public JsonWrapper deleteStudent(@PathVariable Long id,  @PathVariable String token) {
+	@RequestMapping(method=RequestMethod.DELETE, value="/lecturer-salary/{id}/{token}")
+	public JsonWrapper deleteLecturerSalary(@PathVariable Long id,  @PathVariable String token) {
 		
 		JsonWrapper data = Validation(token);
 
 		if (data.getCode() == "LOGIN200") {
-			return studentService.deleteStudent(id);
+			return lecturerSalaryService.deleteLecturerSalary(id);
 		}
 
 		return data;

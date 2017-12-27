@@ -1,4 +1,4 @@
-package com.winhe.institute.management.student;
+package com.winhe.institute.management.upload;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,73 +12,73 @@ import com.winhe.institute.management.session.SessionService;
 import com.winhe.institute.management.util.jsonwrapper.JsonWrapper;
 
 @RestController
-public class StudentController {
+public class UploadController {
 
 	@Autowired
-	private StudentService studentService;
+	private UploadService uploadService;
 
 	@Autowired
 	private SessionService sessionService;
 
-	@RequestMapping("/students/{token}")
-	public JsonWrapper getAllStudents(@PathVariable String token) {
+	@RequestMapping("/upload/{token}")
+	public JsonWrapper getAllUploads(@PathVariable String token) {
 
 		JsonWrapper data = Validation(token);
 
 		if (data.getCode() == "LOGIN200") {
-			return studentService.getAllStudents();
+			return uploadService.getAllUploads();
 		}
 
 		return data;
 
 	}
 
-	@RequestMapping("/students/{id}/{token}")
-	public JsonWrapper getStudent(@PathVariable String id, @PathVariable String token) {
+	@RequestMapping("/upload/{id}/{token}")
+	public JsonWrapper getUpload(@PathVariable String id, @PathVariable String token) {
 
 		JsonWrapper data = Validation(token);
 
 		if (data.getCode() == "LOGIN200") {
-			return studentService.getStudent(id);
+			return uploadService.getUpload(id);
 		}
 
 		return data;
 
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/students/{token}")
-	public JsonWrapper addStudent(@RequestBody Student student, @PathVariable String token) {
+	@RequestMapping(method = RequestMethod.POST, value = "/upload/{token}")
+	public JsonWrapper addUpload(@RequestBody Upload upload, @PathVariable String token) {
 
 		JsonWrapper data = Validation(token);
 
 		if (data.getCode() == "LOGIN200") {
-			return studentService.addStudent(student);
+			return uploadService.addUpload(upload);
 		}
 
 		return data;
 
 	}
 
-	@RequestMapping(method = RequestMethod.PUT, value = "/students/{id}/{token}")
-	public JsonWrapper updateStudent(@RequestBody Student student, @PathVariable Long id, @PathVariable String token) {
+	@RequestMapping(method = RequestMethod.PUT, value = "/upload/{id}/{token}")
+	public JsonWrapper updateUpload(@RequestBody Upload upload, @PathVariable Long id, @PathVariable String token) {
 
 		JsonWrapper data = Validation(token);
 
 		if (data.getCode() == "LOGIN200") {
-			return studentService.updateStudent(id, student);
+			return uploadService.updateUpload(id, upload);
 		}
 
 		return data;
 		
 	}
 	
-	@RequestMapping(method=RequestMethod.DELETE, value="/students/{id}/{token}")
-	public JsonWrapper deleteStudent(@PathVariable Long id,  @PathVariable String token) {
+	@RequestMapping(method=RequestMethod.DELETE, value="/upload/{id}/{token}")
+	public JsonWrapper deleteUpload(@PathVariable Long id,  @PathVariable String token) {
 		
 		JsonWrapper data = Validation(token);
 
 		if (data.getCode() == "LOGIN200") {
-			return studentService.deleteStudent(id);
+			return uploadService.deleteUpload(id);
 		}
 
 		return data;
@@ -89,6 +89,7 @@ public class StudentController {
 	// Validation Function
 
 	private JsonWrapper Validation(String token) {
+
 
 		Session session = (Session) sessionService.getSession(token).getData();
 
@@ -102,4 +103,5 @@ public class StudentController {
 		return data;
 
 	}
+
 }

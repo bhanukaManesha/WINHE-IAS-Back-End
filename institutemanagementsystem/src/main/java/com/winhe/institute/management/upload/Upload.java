@@ -6,16 +6,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 
 import com.winhe.institute.management.exam_timetable.ExamTimetable;
-import com.winhe.institute.management.lecturer.Lecturer;
-import com.winhe.institute.management.student.Student;
 import com.winhe.institute.management.timetable.Timetable;
 import com.winhe.institute.management.util.created_updated.CreatedUpdated;
-import com.winhe.institute.management.course.Course;
+
 
 
 
@@ -30,11 +29,6 @@ public class Upload {
 	private String fileName;
 	private String filePath;
 	
-	@OneToMany(mappedBy="upload")
-	private List<Student> student;
-	
-	@OneToMany(mappedBy="upload")
-	private List<Lecturer> lecturer;
 	
 	@OneToMany(mappedBy="upload")
 	private List<Timetable> timetable;
@@ -42,36 +36,29 @@ public class Upload {
 	@OneToMany(mappedBy="upload")
 	private List<ExamTimetable> examtimetable;
 
-	@OneToMany(mappedBy="upload")
-	private List<Course> course;
 	
 	private CreatedUpdated createdupdated;
+
 
 	/**
 	 * @param id
 	 * @param fileName
 	 * @param filePath
-	 * @param student
-	 * @param lecturer
 	 * @param timetable
 	 * @param examtimetable
-	 * @param course
 	 * @param createdupdated
 	 */
-	public Upload(Long id, String fileName, String filePath, List<Student> student, List<Lecturer> lecturer,
-			List<Timetable> timetable, List<ExamTimetable> examtimetable, List<Course> course,
-			CreatedUpdated createdupdated) {
+	public Upload(Long id, String fileName, String filePath, List<Timetable> timetable,
+			List<ExamTimetable> examtimetable, CreatedUpdated createdupdated) {
 		super();
 		this.id = id;
 		this.fileName = fileName;
 		this.filePath = filePath;
-		this.student = student;
-		this.lecturer = lecturer;
 		this.timetable = timetable;
 		this.examtimetable = examtimetable;
-		this.course = course;
 		this.createdupdated = createdupdated;
 	}
+
 
 	/**
 	 * 
@@ -80,12 +67,14 @@ public class Upload {
 		super();
 	}
 
+
 	/**
 	 * @return the id
 	 */
 	public Long getId() {
 		return id;
 	}
+
 
 	/**
 	 * @param id the id to set
@@ -94,12 +83,14 @@ public class Upload {
 		this.id = id;
 	}
 
+
 	/**
 	 * @return the fileName
 	 */
 	public String getFileName() {
 		return fileName;
 	}
+
 
 	/**
 	 * @param fileName the fileName to set
@@ -108,12 +99,14 @@ public class Upload {
 		this.fileName = fileName;
 	}
 
+
 	/**
 	 * @return the filePath
 	 */
 	public String getFilePath() {
 		return filePath;
 	}
+
 
 	/**
 	 * @param filePath the filePath to set
@@ -122,33 +115,6 @@ public class Upload {
 		this.filePath = filePath;
 	}
 
-	/**
-	 * @return the student
-	 */
-	public List<Student> getStudent() {
-		return student;
-	}
-
-	/**
-	 * @param student the student to set
-	 */
-	public void setStudent(List<Student> student) {
-		this.student = student;
-	}
-
-	/**
-	 * @return the lecturer
-	 */
-	public List<Lecturer> getLecturer() {
-		return lecturer;
-	}
-
-	/**
-	 * @param lecturer the lecturer to set
-	 */
-	public void setLecturer(List<Lecturer> lecturer) {
-		this.lecturer = lecturer;
-	}
 
 	/**
 	 * @return the timetable
@@ -157,12 +123,14 @@ public class Upload {
 		return timetable;
 	}
 
+
 	/**
 	 * @param timetable the timetable to set
 	 */
 	public void setTimetable(List<Timetable> timetable) {
 		this.timetable = timetable;
 	}
+
 
 	/**
 	 * @return the examtimetable
@@ -171,6 +139,7 @@ public class Upload {
 		return examtimetable;
 	}
 
+
 	/**
 	 * @param examtimetable the examtimetable to set
 	 */
@@ -178,19 +147,6 @@ public class Upload {
 		this.examtimetable = examtimetable;
 	}
 
-	/**
-	 * @return the course
-	 */
-	public List<Course> getCourse() {
-		return course;
-	}
-
-	/**
-	 * @param course the course to set
-	 */
-	public void setCourse(List<Course> course) {
-		this.course = course;
-	}
 
 	/**
 	 * @return the createdupdated
@@ -198,6 +154,7 @@ public class Upload {
 	public CreatedUpdated getCreatedupdated() {
 		return createdupdated;
 	}
+
 
 	/**
 	 * @param createdupdated the createdupdated to set
