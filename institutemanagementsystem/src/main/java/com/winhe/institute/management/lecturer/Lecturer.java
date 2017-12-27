@@ -13,10 +13,10 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.winhe.institute.management.associate.lecturer_attendance.LecturerAttendance;
 import com.winhe.institute.management.associate.lecturer_batch.Lecturer_Batch;
 import com.winhe.institute.management.associate.lecturer_batch_time.Lecturer_Batch_Time;
-import com.winhe.institute.management.lecturer_salary.LecturerSalary;
+import com.winhe.institute.management.lecturerattendance.LecturerAttendance;
+import com.winhe.institute.management.lecturersalary.LecturerSalary;
 import com.winhe.institute.management.upload.Upload;
 import com.winhe.institute.management.util.created_updated.CreatedUpdated;
 

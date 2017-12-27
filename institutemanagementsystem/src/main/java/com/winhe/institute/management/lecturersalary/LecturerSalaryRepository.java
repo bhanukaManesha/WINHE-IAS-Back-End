@@ -1,4 +1,4 @@
-package com.winhe.institute.management.lecturer_salary;
+package com.winhe.institute.management.lecturersalary;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
