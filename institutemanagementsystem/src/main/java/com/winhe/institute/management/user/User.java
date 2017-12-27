@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.winhe.institute.management.mail.InternalMail;
 import com.winhe.institute.management.role.Role;
@@ -35,11 +36,14 @@ public class User {
 	@ManyToOne
 	private Role role;
 	
+	
 	@OneToMany(mappedBy="user")
 	private List<Session> session;
 
+	
 	@OneToMany(mappedBy="sender")
 	private List<InternalMail> internalMailSend;
+	
 	
 	@OneToMany(mappedBy="reciever")
 	private List<InternalMail> internalMailReciever;

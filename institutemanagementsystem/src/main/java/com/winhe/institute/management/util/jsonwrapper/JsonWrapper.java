@@ -2,6 +2,8 @@ package com.winhe.institute.management.util.jsonwrapper;
 
 public class JsonWrapper {
 
+	
+
 	private String code;
 	private String message;
 	private Object data;
@@ -47,6 +49,12 @@ public class JsonWrapper {
 		this.data = data;
 	}
 	
-	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "JsonWrapper [code=" + code + ", message=" + message + ", data=" + data + "]";
+	}
 	
 }

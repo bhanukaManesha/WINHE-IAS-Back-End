@@ -5,6 +5,8 @@ import java.util.List;
 
 import java.util.UUID;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,7 @@ import com.winhe.institute.management.util.jsonwrapper.JsonWrapper;
 import com.winhe.institute.management.util.loginuser.LoginUser;
 
 @Service
+@Transactional
 public class SessionService {
 
 	@Autowired
@@ -40,8 +43,9 @@ public class SessionService {
 
 	public JsonWrapper getSession(String token) {
 
+		
 		Session session = sessionRepository.findByToken(token);
-
+		
 		if (session == null) {
 			JsonWrapper data = new JsonWrapper("S404", "ERROR , No Session Found");
 			return data;

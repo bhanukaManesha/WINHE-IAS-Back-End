@@ -91,6 +91,14 @@ public class Session {
 	public void setCreatedupdated(CreatedUpdated createdupdated) {
 		this.createdupdated = createdupdated;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Session [id=" + id + ", token=" + token + ", user=" + user + ", createdupdated=" + createdupdated + "]";
+	}
 	
 	
 	
