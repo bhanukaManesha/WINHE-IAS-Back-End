@@ -22,7 +22,7 @@ public class LecturerService {
 		Lecturer lecturer = lecturerRepository.findOne(Long.valueOf(id));
 
 		if (lecturer == null) {
-			JsonWrapper data = new JsonWrapper("LECTURER200", "ERROR", "No Student Found");
+			JsonWrapper data = new JsonWrapper("LECTURER404", "ERROR", "No Lecturer Found");
 			return data;
 		}
 
@@ -35,7 +35,7 @@ public class LecturerService {
 		
 		lecturerRepository.save(lecturer);
 		
-		JsonWrapper data = new JsonWrapper("U200", "SUCCESSFULLY ADDED", lecturer);
+		JsonWrapper data = new JsonWrapper("LECTURER200", "SUCCESSFULLY ADDED", lecturer);
 	
 		return data;
 	}
@@ -45,7 +45,7 @@ public class LecturerService {
 		
 		lecturerRepository.save(lecturer);
 		
-		JsonWrapper data = new JsonWrapper("U200", "SUCCESSFULLY UPDATED", lecturer);
+		JsonWrapper data = new JsonWrapper("LECTURER200", "SUCCESSFULLY UPDATED", lecturer);
 		
 		return data;
 		
@@ -55,7 +55,7 @@ public class LecturerService {
 	public JsonWrapper deleteLecturer(Long id){
 		lecturerRepository.delete(id);
 		
-		JsonWrapper data = new JsonWrapper("U200", "SUCCESSFULLY DELETED" + id);
+		JsonWrapper data = new JsonWrapper("LECTURER200", "SUCCESSFULLY DELETED" + id);
 		
 		return data;
 	}

@@ -13,7 +13,7 @@ public class LecturerAttendanceService {
 
 	public JsonWrapper getAllLecturerAttendance() {
 
-		JsonWrapper data = new JsonWrapper("LECTURERATTENDANCE", "List of All the Attendance details of lecturers",
+		JsonWrapper data = new JsonWrapper("LECTURERATTENDANCE200", "List of All the Attendance details of lecturers",
 				lecturerAttendanceRepository.findAll());
 
 		return data;
@@ -24,7 +24,7 @@ public class LecturerAttendanceService {
 
 		if (lecturerAttendance == null) {
 
-			JsonWrapper data = new JsonWrapper("LECTURERATTENDANCE200", "ERROR", "No Student Found");
+			JsonWrapper data = new JsonWrapper("LECTURERATTENDANCE404", "ERROR", "No Student Found");
 			return data;
 		}
 		JsonWrapper data = new JsonWrapper("LECTURERATTENDANCE200", "Lecturer Attendance Found", lecturerAttendance);
@@ -37,7 +37,7 @@ public class LecturerAttendanceService {
 
 		lecturerAttendanceRepository.save(lecturerAttendance);
 
-		JsonWrapper data = new JsonWrapper("U200", "SUCCESSFULLY ADDED", lecturerAttendance);
+		JsonWrapper data = new JsonWrapper("LECTURERATTENDANCE200", "SUCCESSFULLY ADDED", lecturerAttendance);
 
 		return data;
 
@@ -47,7 +47,7 @@ public class LecturerAttendanceService {
 
 		lecturerAttendanceRepository.delete(id);
 
-		JsonWrapper data = new JsonWrapper("U200", "SUCCESSFULLY ADDED" + id);
+		JsonWrapper data = new JsonWrapper("LECTURERATTENDANCE200", "SUCCESSFULLY ADDED" + id);
 
 		return data;
 	}
