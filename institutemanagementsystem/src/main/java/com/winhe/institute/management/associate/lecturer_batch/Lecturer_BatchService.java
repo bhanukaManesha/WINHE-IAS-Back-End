@@ -2,7 +2,6 @@ package com.winhe.institute.management.associate.lecturer_batch;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.winhe.institute.management.lecturer.Lecturer;
 import com.winhe.institute.management.util.jsonwrapper.JsonWrapper;
 
 public class Lecturer_BatchService {

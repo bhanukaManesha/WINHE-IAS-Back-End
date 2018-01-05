@@ -3,7 +3,6 @@ package com.winhe.institute.management.associate.lecturer_batch_time;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.winhe.institute.management.lecturer.Lecturer;
 import com.winhe.institute.management.util.jsonwrapper.JsonWrapper;
 
 @Service
