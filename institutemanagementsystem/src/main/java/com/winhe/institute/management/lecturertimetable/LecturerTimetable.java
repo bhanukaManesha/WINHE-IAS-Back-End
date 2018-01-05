@@ -7,13 +7,12 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
-import com.winhe.institute.management.batch.Batch;
 import com.winhe.institute.management.lecturer.Lecturer;
 import com.winhe.institute.management.upload.Upload;
 import com.winhe.institute.management.util.created_updated.CreatedUpdated;
 
 @Entity
-public class Lecturer_Timetable {
+public class LecturerTimetable {
 
 	@Id
 	@SequenceGenerator(name="lecturer_timetable_generator", sequenceName="lecturer_timetable_seq", allocationSize = 1, initialValue = 1000)
@@ -34,7 +33,7 @@ public class Lecturer_Timetable {
 	 * @param upload
 	 * @param createdupdated
 	 */
-	public Lecturer_Timetable(Long id, Lecturer lecturer, Upload upload, CreatedUpdated createdupdated) {
+	public LecturerTimetable(Long id, Lecturer lecturer, Upload upload, CreatedUpdated createdupdated) {
 		super();
 		this.id = id;
 		this.lecturer = lecturer;
@@ -45,7 +44,7 @@ public class Lecturer_Timetable {
 	/**
 	 * 
 	 */
-	public Lecturer_Timetable() {
+	public LecturerTimetable() {
 		super();
 	}
 

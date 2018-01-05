@@ -1,11 +1,11 @@
 package com.winhe.institute.management.associate.lecturer_batch;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.winhe.institute.management.associate.student_batch.Student_Batch;
-import com.winhe.institute.management.lecturer.Lecturer;
 import com.winhe.institute.management.util.jsonwrapper.JsonWrapper;
 
+@Service
 public class Lecturer_Batch_Service {
 
 	@Autowired
