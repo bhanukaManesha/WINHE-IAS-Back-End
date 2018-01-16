@@ -17,9 +17,6 @@ import com.winhe.institute.management.role.Role;
 import com.winhe.institute.management.session.Session;
 import com.winhe.institute.management.util.created_updated.CreatedUpdated;
 
-
-
-
 @Entity
 public class User {
 	
@@ -47,6 +44,9 @@ public class User {
 	@OneToMany(mappedBy="reciever")
 	private List<InternalMail> internalMailReciever;
 
+	@ManyToOne
+	private Integer branchPhoneNo;
+	
 	private CreatedUpdated createdupdated;
 
 	/**
