@@ -1,4 +1,4 @@
-package com.winhe.institute.management.studentattendance;
+package com.winhe.institute.management.studentAttendance;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

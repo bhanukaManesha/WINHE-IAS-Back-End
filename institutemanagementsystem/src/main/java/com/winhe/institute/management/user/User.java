@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.winhe.institute.management.branchPhoneNo.BranchPhoneNo;
 import com.winhe.institute.management.mail.InternalMail;
 import com.winhe.institute.management.role.Role;
 import com.winhe.institute.management.session.Session;
@@ -45,7 +46,7 @@ public class User {
 	private List<InternalMail> internalMailReciever;
 
 	@ManyToOne
-	private Integer branchPhoneNo;
+	private BranchPhoneNo branchPhoneNo;
 	
 	private CreatedUpdated createdupdated;
 
@@ -58,10 +59,11 @@ public class User {
 	 * @param session
 	 * @param internalMailSend
 	 * @param internalMailReciever
+	 * @param branchPhoneNo
 	 * @param createdupdated
 	 */
 	public User(Integer id, String userName, String email, String password, Role role, List<Session> session,
-			List<InternalMail> internalMailSend, List<InternalMail> internalMailReciever,
+			List<InternalMail> internalMailSend, List<InternalMail> internalMailReciever, BranchPhoneNo branchPhoneNo,
 			CreatedUpdated createdupdated) {
 		super();
 		this.id = id;
@@ -72,6 +74,7 @@ public class User {
 		this.session = session;
 		this.internalMailSend = internalMailSend;
 		this.internalMailReciever = internalMailReciever;
+		this.branchPhoneNo = branchPhoneNo;
 		this.createdupdated = createdupdated;
 	}
 
@@ -82,131 +85,89 @@ public class User {
 		super();
 	}
 
-	/**
-	 * @return the id
-	 */
 	public Integer getId() {
 		return id;
 	}
 
-	/**
-	 * @param id the id to set
-	 */
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	/**
-	 * @return the userName
-	 */
 	public String getUserName() {
 		return userName;
 	}
 
-	/**
-	 * @param userName the userName to set
-	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
-	/**
-	 * @return the email
-	 */
 	public String getEmail() {
 		return email;
 	}
 
-	/**
-	 * @param email the email to set
-	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	/**
-	 * @return the password
-	 */
 	public String getPassword() {
 		return password;
 	}
 
-	/**
-	 * @param password the password to set
-	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	/**
-	 * @return the role
-	 */
 	public Role getRole() {
 		return role;
 	}
 
-	/**
-	 * @param role the role to set
-	 */
 	public void setRole(Role role) {
 		this.role = role;
 	}
 
-	/**
-	 * @return the session
-	 */
 	public List<Session> getSession() {
 		return session;
 	}
 
-	/**
-	 * @param session the session to set
-	 */
 	public void setSession(List<Session> session) {
 		this.session = session;
 	}
 
-	/**
-	 * @return the internalMailSend
-	 */
 	public List<InternalMail> getInternalMailSend() {
 		return internalMailSend;
 	}
 
-	/**
-	 * @param internalMailSend the internalMailSend to set
-	 */
 	public void setInternalMailSend(List<InternalMail> internalMailSend) {
 		this.internalMailSend = internalMailSend;
 	}
 
-	/**
-	 * @return the internalMailReciever
-	 */
 	public List<InternalMail> getInternalMailReciever() {
 		return internalMailReciever;
 	}
 
-	/**
-	 * @param internalMailReciever the internalMailReciever to set
-	 */
 	public void setInternalMailReciever(List<InternalMail> internalMailReciever) {
 		this.internalMailReciever = internalMailReciever;
 	}
 
-	/**
-	 * @return the createdupdated
-	 */
+	public BranchPhoneNo getBranchPhoneNo() {
+		return branchPhoneNo;
+	}
+
+	public void setBranchPhoneNo(BranchPhoneNo branchPhoneNo) {
+		this.branchPhoneNo = branchPhoneNo;
+	}
+
 	public CreatedUpdated getCreatedupdated() {
 		return createdupdated;
 	}
 
-	/**
-	 * @param createdupdated the createdupdated to set
-	 */
 	public void setCreatedupdated(CreatedUpdated createdupdated) {
 		this.createdupdated = createdupdated;
 	}
+
+
+	
+	
 	
 	
 	

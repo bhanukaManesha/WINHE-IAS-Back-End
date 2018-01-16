@@ -1,4 +1,4 @@
-package com.winhe.institute.management.studentattendance;
+package com.winhe.institute.management.studentAttendance;
 
 import java.util.Date;
 

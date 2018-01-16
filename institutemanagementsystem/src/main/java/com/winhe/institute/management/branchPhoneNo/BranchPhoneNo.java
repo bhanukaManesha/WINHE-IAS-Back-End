@@ -2,6 +2,7 @@ package com.winhe.institute.management.branchPhoneNo;
 
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -9,9 +10,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
+import com.winhe.institute.management.branch.Branch;
 import com.winhe.institute.management.user.User;
 import com.winhe.institute.management.util.created_updated.CreatedUpdated;
 
+@Entity
 public class BranchPhoneNo {
 
 	@Id
@@ -22,10 +25,10 @@ public class BranchPhoneNo {
 	private String branchPhoneNo;
 	
 	@ManyToOne
-	private Integer branchId;
+	private Branch branchId;
 	
 	@OneToMany(mappedBy="branchPhoneNo")
-	private List<User> userId;
+	private List<User> user;
 	
 	private CreatedUpdated createdupdated;
 	
