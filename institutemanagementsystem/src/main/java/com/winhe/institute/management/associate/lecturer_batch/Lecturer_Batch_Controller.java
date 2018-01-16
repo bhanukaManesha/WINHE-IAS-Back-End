@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.winhe.institute.management.associate.student_batch.Student_Batch;
 import com.winhe.institute.management.session.Session;
 import com.winhe.institute.management.session.SessionService;
 import com.winhe.institute.management.util.jsonwrapper.JsonWrapper;
@@ -19,7 +18,7 @@ public class Lecturer_Batch_Controller {
 	private Lecturer_Batch_Service lecturer_Batch_Service;
 
 	@Autowired
-	SessionService sessionService;
+	private SessionService sessionService;
 
 	@RequestMapping("/lecturer-batch/{token}")
 	public JsonWrapper getAllLecturerBatch(@PathVariable String token) {

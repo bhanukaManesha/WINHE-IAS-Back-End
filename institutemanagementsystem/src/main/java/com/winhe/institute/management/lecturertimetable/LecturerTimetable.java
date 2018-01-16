@@ -1,4 +1,4 @@
-package com.winhe.institute.management.timetable;
+package com.winhe.institute.management.lecturertimetable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,20 +7,20 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
-import com.winhe.institute.management.batch.Batch;
+import com.winhe.institute.management.lecturer.Lecturer;
 import com.winhe.institute.management.upload.Upload;
 import com.winhe.institute.management.util.created_updated.CreatedUpdated;
 
 @Entity
-public class Timetable {
+public class LecturerTimetable {
 
 	@Id
-	@SequenceGenerator(name="timetable_generator", sequenceName="timetable_seq", allocationSize = 1, initialValue = 1000)
-	@GeneratedValue(strategy= GenerationType.SEQUENCE, generator="timetable_generator")
+	@SequenceGenerator(name="lecturer_timetable_generator", sequenceName="lecturer_timetable_seq", allocationSize = 1, initialValue = 1000)
+	@GeneratedValue(strategy= GenerationType.SEQUENCE, generator="lecturer_timetable_generator")
 	private Long id;
 	
 	@ManyToOne
-	private Batch batch;
+	private Lecturer lecturer;
 	
 	@ManyToOne
 	private Upload upload;
@@ -29,14 +29,14 @@ public class Timetable {
 
 	/**
 	 * @param id
-	 * @param batch
+	 * @param lecturer
 	 * @param upload
 	 * @param createdupdated
 	 */
-	public Timetable(Long id, Batch batch, Upload upload, CreatedUpdated createdupdated) {
+	public LecturerTimetable(Long id, Lecturer lecturer, Upload upload, CreatedUpdated createdupdated) {
 		super();
 		this.id = id;
-		this.batch = batch;
+		this.lecturer = lecturer;
 		this.upload = upload;
 		this.createdupdated = createdupdated;
 	}
@@ -44,7 +44,7 @@ public class Timetable {
 	/**
 	 * 
 	 */
-	public Timetable() {
+	public LecturerTimetable() {
 		super();
 	}
 
@@ -63,17 +63,17 @@ public class Timetable {
 	}
 
 	/**
-	 * @return the batch
+	 * @return the lecturer
 	 */
-	public Batch getBatch() {
-		return batch;
+	public Lecturer getLecturer() {
+		return lecturer;
 	}
 
 	/**
-	 * @param batch the batch to set
+	 * @param lecturer the lecturer to set
 	 */
-	public void setBatch(Batch batch) {
-		this.batch = batch;
+	public void setLecturer(Lecturer lecturer) {
+		this.lecturer = lecturer;
 	}
 
 	/**
@@ -103,9 +103,10 @@ public class Timetable {
 	public void setCreatedupdated(CreatedUpdated createdupdated) {
 		this.createdupdated = createdupdated;
 	}
+	
+	
+	
 
-	
-	
 	
 	
 }

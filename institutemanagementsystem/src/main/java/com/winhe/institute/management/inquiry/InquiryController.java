@@ -1,4 +1,4 @@
-package com.winhe.institute.management.lecturer;
+package com.winhe.institute.management.inquiry;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,82 +12,84 @@ import com.winhe.institute.management.session.SessionService;
 import com.winhe.institute.management.util.jsonwrapper.JsonWrapper;
 
 @RestController
-public class LecturerController {
+public class InquiryController {
 
 	@Autowired
-	private LecturerService lecturerService;
+	private InquiryService inquiryService;
 
 	@Autowired
 	private SessionService sessionService;
 
-	@RequestMapping("/lecturer/{token}")
-	public JsonWrapper getAllLecturers(@PathVariable String token) {
+	@RequestMapping("/inquiry/{token}")
+	public JsonWrapper getAllInquiries(@PathVariable String token) {
 
 		JsonWrapper data = Validation(token);
 
 		if (data.getCode() == "LOGIN200") {
-
-			return lecturerService.getAllLecturers();
-		}
-		return data;
-	}
-
-	@RequestMapping("/lecturer/{id}/{token}")
-	public JsonWrapper getLecturer(@PathVariable String id, @PathVariable String token) {
-
-		JsonWrapper data = Validation(token);
-
-		if (data.getCode() == "LOGIN200") {
-			return lecturerService.getLecturer(id);
+			return inquiryService.getAllInquiries();
 		}
 
 		return data;
 
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/lecturer/{token}")
-	public JsonWrapper addLecturer(@RequestBody Lecturer lecturer, @PathVariable String token) {
+	@RequestMapping("/inquiry/{id}/{token}")
+	public JsonWrapper getInquiry(@PathVariable String id, @PathVariable String token) {
 
 		JsonWrapper data = Validation(token);
 
 		if (data.getCode() == "LOGIN200") {
-			return lecturerService.addLecturer(lecturer);
+			return inquiryService.getInquiry(id);
 		}
 
 		return data;
 
 	}
 
-	@RequestMapping(method = RequestMethod.PUT, value = "/lecturer/{id}/{token}")
-	public JsonWrapper updateLecturer(@RequestBody Lecturer lecturer, @PathVariable Long id,
-			@PathVariable String token) {
+	@RequestMapping(method = RequestMethod.POST, value = "/inquiry/{token}")
+	public JsonWrapper addInquiry(@RequestBody Inquiry inquiry, @PathVariable String token) {
 
 		JsonWrapper data = Validation(token);
 
 		if (data.getCode() == "LOGIN200") {
-			return lecturerService.updateLecturer(id, lecturer);
+			return inquiryService.addInquiry(inquiry);
 		}
 
 		return data;
 
 	}
 
-	@RequestMapping(method = RequestMethod.DELETE, value = "/lecturer/{id}/{token}")
-	public JsonWrapper deleteLecturer(@PathVariable Long id, @PathVariable String token) {
+	@RequestMapping(method = RequestMethod.PUT, value = "/inquiry/{id}/{token}")
+	public JsonWrapper updateInquiry(@RequestBody Inquiry inquiry, @PathVariable Long id, @PathVariable String token) {
 
 		JsonWrapper data = Validation(token);
 
 		if (data.getCode() == "LOGIN200") {
-			return lecturerService.deleteLecturer(id);
+			return inquiryService.updateInquiry(id, inquiry);
 		}
 
 		return data;
+		
+	}
+	
+	@RequestMapping(method=RequestMethod.DELETE, value="/inquiry/{id}/{token}")
+	public JsonWrapper deleteInquiry(@PathVariable Long id,  @PathVariable String token) {
+		
+		JsonWrapper data = Validation(token);
 
+		if (data.getCode() == "LOGIN200") {
+			return inquiryService.deleteInquiry(id);
+		}
+
+		return data;
+		
+		
 	}
 
 	// Validation Function
 
 	private JsonWrapper Validation(String token) {
+
 
 		Session session = (Session) sessionService.getSession(token).getData();
 
@@ -101,4 +103,5 @@ public class LecturerController {
 		return data;
 
 	}
+
 }
