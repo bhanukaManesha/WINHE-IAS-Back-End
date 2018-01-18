@@ -1,5 +1,7 @@
 package com.winhe.institute.management.branch;
 
-public class BranchRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BranchRepository extends JpaRepository<Branch, Long> {
 
 }
